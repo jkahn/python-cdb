@@ -4,7 +4,8 @@ SRCDIR   = "src"
 SRCFILES = map(lambda f: SRCDIR + '/' + f + '.c',
               ["cdbmodule","cdb","cdb_make","cdb_hash",
                "uint32_pack","uint32_unpack"])
-
+HEADERFILES = map(lambda f: SRCDIR + '/' + f + '.h',
+                  ["cdb", "cdb_make", "uint32"])
 from distutils.core import setup, Extension
 
 setup (# Distribution meta-data
@@ -25,6 +26,7 @@ objects.''',
         ext_modules = [ Extension(
                             "cdbmodule",
                             SRCFILES,
+                            depends=HEADERFILES,
                             include_dirs=[ SRCDIR + '/' ],
                             extra_compile_args=['-fPIC'],
                         )
