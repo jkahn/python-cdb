@@ -13,6 +13,10 @@
 #define EPROTO -15  /* cdb 0.75's default for PROTOless systems */
 #endif
 
+#ifndef MAX_MEMMAP_SIZE
+#define MAX_MEMMAP_SIZE 0xffffffff
+#endif
+
 void cdb_free(struct cdb *c)
 {
   if (c->map) {
@@ -36,7 +40,7 @@ void cdb_init(struct cdb *c,int fd)
   c->fd = fd;
 
   if (fstat(fd,&st) == 0)
-    if (st.st_size <= 0xffffffff) {
+    if (st.st_size <= MAX_MEMMAP_SIZE) {
       x = mmap(0,st.st_size,PROT_READ,MAP_SHARED,fd,0);
       if (x + 1) {
 	c->size = st.st_size;
