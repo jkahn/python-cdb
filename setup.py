@@ -9,7 +9,7 @@ from distutils.core import setup, Extension
 
 setup (# Distribution meta-data
         name = "python-cdb",
-        version = "0.35",
+        version = "0.36a1",
         description = "Interface to constant database files",
         author = "Alan Grow",
         author_email = "alangrow+python-cdb@gmail.com",

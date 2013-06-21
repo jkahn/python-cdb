@@ -1,6 +1,11 @@
 python-cdb ChangeLog
 Alan Grow <alangrow+python-cdb@gmail.com>
-15 Feb 2013
+21 Jun 2013
+
+21 Jun 2013
+  - Version 0.36a1 (Jeremy Kahn jkahn@inome.com)
+  - attempting to tune CDB so that larger files may *not* be 
+    memory-mapped
 
 15 Feb 2013
   - Version 0.35
